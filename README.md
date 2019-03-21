@@ -4,7 +4,7 @@ Project is to develop custom firmware on TMS320 and communicate with Arduino
 
 Assets:
 CCSTUDIO 5.5 
-TMS320f28027 - piccolo F28027
+TMS320f28027 - Piccolo F28027
 
 Methodology:
 1. Develop customised functions to do MAC operations in an optimized way.
