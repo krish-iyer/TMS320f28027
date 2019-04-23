@@ -1,0 +1,147 @@
+******************************************************************************
+             TMS320C2000 Linker PC v6.2.0                      
+******************************************************************************
+>> Linked Wed Mar 20 11:13:51 2019
+
+OUTPUT FILE NAME:   <asm_module.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00008000
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  BEGIN                 00000000   00000002  00000000  00000002  RWIX
+  RAMM0                 00000050   000003b0  0000001a  00000396  RWIX
+  PRAML0                00008000   00000900  00000093  0000086d  RWIX
+  IQTABLES              003fe000   00000b50  00000000  00000b50  RWIX
+  IQTABLES2             003feb50   0000008c  00000000  0000008c  RWIX
+  IQTABLES3             003febdc   000000aa  00000000  000000aa  RWIX
+  BOOTROM               003ff27c   00000d44  00000000  00000d44  RWIX
+  RESET                 003fffc0   00000002  00000000  00000002  RWIX
+
+PAGE 1:
+  BOOT_RSVD             00000002   0000004e  00000000  0000004e  RWIX
+  RAMM1                 00000400   00000400  00000300  00000100  RWIX
+  DRAML0                00008900   00000700  00000009  000006f7  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.pinit     0    00000050    00000000     UNINITIALIZED
+
+.cinit     0    00000050    0000001a     
+                  00000050    0000000a     rts2800_ml.lib : _lock.obj (.cinit)
+                  0000005a    0000000a                    : exit.obj (.cinit)
+                  00000064    00000004     main.obj (.cinit)
+                  00000068    00000002     --HOLE-- [fill = 0]
+
+.text      0    00008000    00000093     
+                  00008000    00000044     rts2800_ml.lib : boot.obj (.text)
+                  00008044    00000019                    : args_main.obj (.text)
+                  0000805d    00000019                    : exit.obj (.text)
+                  00008076    0000000c     func_asm.obj (.text)
+                  00008082    00000009     rts2800_ml.lib : _lock.obj (.text)
+                  0000808b    00000008     main.obj (.text)
+
+.reset     0    003fffc0    00000002     DSECT
+                  003fffc0    00000002     rts2800_ml.lib : boot.obj (.reset)
+
+.stack     1    00000400    00000300     UNINITIALIZED
+                  00000400    00000300     --HOLE--
+
+.ebss      1    00008900    00000009     UNINITIALIZED
+                  00008900    00000004     rts2800_ml.lib : _lock.obj (.ebss)
+                  00008904    00000004                    : exit.obj (.ebss)
+                  00008908    00000001     main.obj (.ebss)
+
+
+GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
+
+address     data page           name
+--------    ----------------    ----
+00000400      10 (00000400)     __stack
+
+00008900     224 (00008900)     __unlock
+00008902     224 (00008900)     __lock
+00008904     224 (00008900)     ___TI_cleanup_ptr
+00008906     224 (00008900)     ___TI_dtors_ptr
+00008908     224 (00008900)     _gvar
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00008000   .text
+0000805d   C$$EXIT
+00000700   __STACK_END
+00000300   __STACK_SIZE
+00000001   __TI_args_main
+00008904   ___TI_cleanup_ptr
+00008906   ___TI_dtors_ptr
+ffffffff   ___binit__
+ffffffff   ___c_args__
+00000050   ___cinit__
+00008093   ___etext__
+ffffffff   ___pinit__
+00008000   ___text__
+00008044   __args_main
+00008902   __lock
+0000808a   __nop
+00008086   __register_lock
+00008082   __register_unlock
+00000400   __stack
+00008900   __unlock
+0000805d   _abort
+00008076   _asmfunc
+00008000   _c_int00
+0000805f   _exit
+00008908   _gvar
+0000808b   _main
+ffffffff   binit
+00000050   cinit
+00008093   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000001   __TI_args_main
+00000050   ___cinit__
+00000050   cinit
+00000300   __STACK_SIZE
+00000400   __stack
+00000700   __STACK_END
+00008000   .text
+00008000   ___text__
+00008000   _c_int00
+00008044   __args_main
+0000805d   C$$EXIT
+0000805d   _abort
+0000805f   _exit
+00008076   _asmfunc
+00008082   __register_unlock
+00008086   __register_lock
+0000808a   __nop
+0000808b   _main
+00008093   ___etext__
+00008093   etext
+00008900   __unlock
+00008902   __lock
+00008904   ___TI_cleanup_ptr
+00008906   ___TI_dtors_ptr
+00008908   _gvar
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[30 symbols]
